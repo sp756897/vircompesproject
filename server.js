@@ -22,7 +22,7 @@ mongoose.set('useFindAndModify', false);
 
 mongoose
   .connect(
-    process.env.MONGODB_URI || db,
+    db,
     { useNewUrlParser: true,
       useUnifiedTopology: true  }
   )
