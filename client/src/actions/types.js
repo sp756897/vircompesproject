@@ -1,0 +1,13 @@
+export const GET_ERRORS = "GET_ERRORS";
+export const USER_LOADING = "USER_LOADING";
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const FETCH_IDEA = "FETCH_IDEA";
+export const FETCH_YOUR_IDEA = "FETCH_YOUR_IDEA";
+export const FETCH_OTHERS_IDEA = "FETCH_OTHERS_IDEA";
+export const APPROVAL_REQUEST = "APPROVAL_REQUEST";
+export const FETCH_REQUESTS = "FETCH_REQUESTS";
+export const APPROVED = "APPROVED";
+export const SEARCH = "SEARCH";
+export const FETCH_TEAMMEMBERS = "FETCH_TEAMMEMBERS";
+
+
