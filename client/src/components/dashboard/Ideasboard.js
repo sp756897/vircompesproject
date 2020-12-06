@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {fetchIdea} from "../../actions/authActions";
 import Dashnav from "./Dashnav";
+import "../../App.css";
 
 class Ideasboard extends Component {
     constructor(props){

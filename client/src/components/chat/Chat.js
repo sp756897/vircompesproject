@@ -45,18 +45,11 @@ class Chat extends React.Component {
 }
 
   componentDidMount() {
-    
-    if(window.location.href === "https://vircompespro.herokuapp.com/chat"){
-      var url = "https://vircompespro.herokuapp.com";
-    }
 
-    else{
-      var url = "http://localhost:5000";
-    }
-
-    this.socket = io(url,{transports: ['websocket']});
+    this.socket = io("http://localhost:5000",{transports: ['websocket']});
     // Update the chat if a new message is broadcasted.
     this.socket.on('push', (msg) => {
+
       const tofromarr = [];
       tofromarr.push(msg.to);
       tofromarr.push(msg.from);
@@ -98,6 +91,8 @@ class Chat extends React.Component {
         from: this.state.from,
         to: this.state.to,
       });
+
+      console.log(this.state.content);
   
       this.setState((state) => {
         // Update the chat with the user's message and remove the current message.

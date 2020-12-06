@@ -40,3 +40,13 @@
   background: blue;
   border-radius: 10px;
 }
+
+p {
+  max-width: 30rem;
+}
+
+.card-title {
+  font-weight: 900px;
+  font-family: caudex;
+  text-decoration: solid;
+}

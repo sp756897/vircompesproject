@@ -53,6 +53,16 @@ export const teamApproval = (reqdata) => dispatch  => {
     .catch(err => console.log(err));
 };
 
+export const teamDelete = (reqdata)=>dispatch =>{
+  axios
+  .post("/api/users/teamdelete",reqdata)
+  .then( res => dispatch({
+    type: APPROVED,
+    payload: res.data
+  })
+  )
+    .catch(err => console.log(err));
+};
 
 // Login - get user token
 export const loginUser = userData => dispatch => {

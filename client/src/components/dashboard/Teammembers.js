@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchTeamMembers } from "../../actions/authActions";
+import { fetchTeamMembers ,teamDelete} from "../../actions/authActions";
 import Dashnav from "./Dashnav";
 
 class Teammembers extends Component {
@@ -10,6 +10,9 @@ class Teammembers extends Component {
     constructor(props) {
         super(props)
         const { user } = this.props.auth;
+        this.state={
+            user: user,
+          };
         this.props.fetchTeamMembers({ email: user.email });
     }
 
@@ -19,6 +22,17 @@ class Teammembers extends Component {
                 noteam:nextProps.noteam,
             });
         }
+    }
+
+    onSubmit = (mememail,e)=>{
+        e.preventDefault();
+        const Member = {
+            email: this.state.user.email,
+            member:  mememail,
+        }
+        this.props.teamDelete(Member);
+        this.props.fetchTeamMembers({ email: this.state.user.email });
+        console.log(Member);
     }
 
     render() {
@@ -43,9 +57,10 @@ class Teammembers extends Component {
                                     marginTop: "1rem",
                                     color:"black"
                                 }}
-                                className="btn btn-small waves-effect waves-light hoverable #76ff03 light-green accent-3"
+                                onClick={(e) =>this.onSubmit(reqs,e)}
+                                className="btn btn-small waves-effect waves-light hoverable #76ff03 red"
                             >
-                                Approved
+                                Delete
                 </button>
                         </div>
                     </div>
@@ -85,6 +100,7 @@ class Teammembers extends Component {
 
 Teammembers.propTypes = {
     fetchTeamMembers: PropTypes.func.isRequired,
+    teamDelete:PropTypes.func.isRequired,
     team: PropTypes.array.isRequired,
     auth: PropTypes.object.isRequired,
     noteam:PropTypes.bool.isRequired
@@ -98,5 +114,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { fetchTeamMembers }
+    { fetchTeamMembers,teamDelete }
 )(Teammembers);

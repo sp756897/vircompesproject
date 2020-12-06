@@ -22,11 +22,11 @@ class Dashboard extends Component {
         <div class="col s12 m8 l9" style={{marginTop:"9rem"}}>
           <div className="col s12 center-align">
             <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
-              <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
-</p>
+              <b>Hey there,</b> {user.name.split(" ")[0]} What's Up?<br></br>
+              <h className="flow-text grey-text text-darken-1">
+                You are logged into{" "}
+                <span style={{ fontFamily: "monospace" }}>Vircom</span> Ideas app 👏
+             </h>
             </h4>
             <button
               style={{
