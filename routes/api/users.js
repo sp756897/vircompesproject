@@ -195,15 +195,6 @@ router.post("/teammembers",(req,res)=>{
   .catch(err => console.log(err));
 });
 
-router.post("/teamnames",(req,res)=>{
-  const email = req.body.email;
-
-  User.findOne({email:email},{name:1,_id:0})
-  .then(user => {
-    res.json(user)})
-  .catch(err => console.log(err));
-});
-
 router.post("/login", (req, res) => {
     // Form validation
   const { errors, isValid } = validatelogin(req.body);

@@ -61,7 +61,7 @@ mongoose
         // Send the last messages to the user.
         socket.emit('init', messages);
       });
-      
+
     });
   
     // Listen to connected users for a new message.
