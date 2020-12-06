@@ -46,7 +46,7 @@ class Chat extends React.Component {
 
   componentDidMount() {
     
-    if(window.location.href === "https://vircompespro.herokuapp.com"){
+    if(window.location.href === "https://vircompespro.herokuapp.com/chat"){
       var url = "https://vircompespro.herokuapp.com";
     }
 
