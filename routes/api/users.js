@@ -1,54 +1,16 @@
 const express = require("express");
-const app = express();
-const http = require('http').Server(app);
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
-const io = require("socket.io")(http);
-
 
 const validateregin = require("../../validation/register");
 const validatelogin = require("../../validation/login");
 const validateidea = require("../../validation/idea");
 
-
 const User = require("../../models/User");
 const Idea = require("../../models/Ideas");
-const Msg = require("../../models/Chat");
 
-const { json } = require("body-parser");
-
-const cemail = "";
-
-io.on('connection', (socket) => {
-
-  // Get the last 10 messages from the database.
-  Msg.find().sort({createdAt: -1}).limit(10).exec((err, messages) => {
-    if (err) return console.error(err);
-
-    // Send the last messages to the user.
-    socket.emit('init', messages);
-  });
-
-  // Listen to connected users for a new message.
-  socket.on('message', (msg) => {
-    // Create a message with the content and the name of the user.
-    const message = new Message({
-      content: msg.content,
-      name: msg.name,
-    });
-
-    // Save the message to the database.
-    message.save((err) => {
-      if (err) return console.error(err);
-    });
-
-    // Notify all other users about a new message.
-    socket.broadcast.emit('push', msg);
-  });
-});
- 
 router.post("/register",(req,res)=>{
 
     const {errors, isValid} = validateregin(req.body);
@@ -118,7 +80,17 @@ router.post("/teamapprovalreq",(req,res)=>{
           trmembers:tamembers
         }
       }
-      ).then(delidea => delidea.save());
+      ).then(delidea => delidea.save())
+      .catch(err => console.log(err) );
+
+      User.findOneAndUpdate({email:tamembers},
+        {
+          $addToSet:{
+            tamembers:email
+          }
+        }
+        ).then(delide => delide.save())
+        .catch(err => console.log(err) );
     
     User.findOneAndUpdate({email},
         {
@@ -220,6 +192,15 @@ router.post("/teammembers",(req,res)=>{
   .then(user => {
     const payl=Object.values(user.tamembers);
     res.json(payl)})
+  .catch(err => console.log(err));
+});
+
+router.post("/teamnames",(req,res)=>{
+  const email = req.body.email;
+
+  User.findOne({email:email},{name:1,_id:0})
+  .then(user => {
+    res.json(user)})
   .catch(err => console.log(err));
 });
 

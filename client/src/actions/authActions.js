@@ -173,6 +173,14 @@ export const fetchTeamMembers = (email) => dispatch => {
   .catch(err => console.log(err));
 };
 
+/*export const fetchTeamMembers = (email) => dispatch => {
+  axios.post("/api/users/teamnames",reqs)
+  .then(res => {
+          res
+  })
+  .catch(()=>console.log("Check your Internet Connection"));
+};*/
+
 export const ideaSearch = (val) => dispatch => {
   axios
   .post("/api/users/search",val)

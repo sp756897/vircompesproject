@@ -119,6 +119,19 @@ class Dashnav extends Component {
               >
                Requests
               </Link>
+              <Link
+                to="/chat"
+                style={{
+                  width: "140px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px",
+                  width:"100%",
+                  margin: "6px 6px"
+                }}
+                className="btn btn-large waves-effect waves-light hoverable #2196f3 blue"
+              >
+               Chat
+              </Link>
               <button
               style={{
                   width: "140px",

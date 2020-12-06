@@ -3,22 +3,13 @@ const Schema = mongoose.Schema;
 
 const ChatSchema = new Schema(
     {
-        name:{
-            type:String,
-            required:true
-        },
-        content:{
-            type:String,
-            required:true
-        },
-        email:{
-            type:String,
-            required:true
-        }
-    },
-    {
-        timestamps:true
-    }
+        content: String,
+        name: String,
+        to:String,
+        from:String
+      }, {
+        timestamps: true,
+      }
 );
 
-module.exports = Msg = mongoose.model("chat",ChatSchema);
+module.exports = Msg = mongoose.model("chats",ChatSchema);

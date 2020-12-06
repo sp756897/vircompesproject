@@ -11,7 +11,6 @@ class Teammembers extends Component {
         super(props)
         const { user } = this.props.auth;
         this.props.fetchTeamMembers({ email: user.email });
-        console.log(this.props.team);
     }
 
     componentWillReceiveProps(nextProps){

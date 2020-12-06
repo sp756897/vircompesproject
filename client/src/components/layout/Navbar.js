@@ -12,37 +12,13 @@ export default class Navbar extends Component{
               style={{
                 fontFamily: "caudex",
                 color: "black",
-                paddingLeft:"70px"
+                justifyContent:"center",
+                textAlign:"center"
               }}
-              className="brand-logo">
+              className="col s5 brand-logo center">
               <i className="material-icons">code</i>
               Vircom
             </Link>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <Link
-              to="/register"
-              style={{
-                fontFamily: "caudex",
-                borderRadius: "60px",
-                letterSpacing: "2px",
-                textTransform: "capitalize"
-              }}
-              className="btn waves-effect waves-light hoverable blue accent-3">
-              Sign Up
-            </Link>
-            <Link
-              to="/login"
-              style={{
-                fontFamily: "caudex",
-                borderRadius: "60px",
-                letterSpacing: "2px",
-                textTransform: "capitalize",
-                marginRight: "60px"
-              }}
-              className="btn waves-effect waves-light hoverable blue accent-3">
-              Sign In
-            </Link>
-            </ul> 
           </div>
         </nav>
       </div>

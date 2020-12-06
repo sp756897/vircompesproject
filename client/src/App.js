@@ -20,6 +20,7 @@ import Jointeam from "./components/dashboard/Jointeam";
 import Requests from "./components/dashboard/Requests";
 import Search from "./components/dashboard/Search";
 import Teammembers from "./components/dashboard/Teammembers";
+import Chat from "./components/chat/Chat";
 
 
 // Check for token to keep user logged in
@@ -60,6 +61,7 @@ class App extends Component {
               <PrivateRoute exact path="/requests" component={Requests}  />
               <PrivateRoute exact path="/search" component={Search}  />
               <PrivateRoute exact path="/teammembers" component={Teammembers}  />
+              <PrivateRoute exact path="/chat" component={Chat}  />
             </Switch>
         </div>
       </Router>
