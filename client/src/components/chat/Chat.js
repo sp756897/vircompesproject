@@ -46,7 +46,17 @@ class Chat extends React.Component {
 
   componentDidMount() {
 
-    this.socket = io("http://localhost:5000",{transports: ['websocket']});
+    var url;
+
+    if(window.location.href === "https://vircompespro.herokuapp.com/chat"){
+      url = "https://vircompespro.herokuapp.com"
+    }
+
+    else{
+      url = "http://localhost:5000"
+    }
+
+    this.socket = io( url ,{transports: ['websocket']});
     // Update the chat if a new message is broadcasted.
     this.socket.on('push', (msg) => {
 
