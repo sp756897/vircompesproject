@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Parent from "./Land";
 
 export default class Landing extends Component {
   render() {
@@ -61,11 +62,12 @@ export default class Landing extends Component {
         <h6>Phone: Calc(log10 * sin(50*20*1) * 0</h6>
         <h6>Address: Milky Way Galaxy, Solar System, Mars</h6>
         <h6>Email: LogoutRightNow@goaway.com</h6>
-        <h6>Created with Love : Akshay S P, Abhinav Anand, Amar Prakash, Ambika</h6>
+        <h6>Created with Love : Akshay S P</h6>
         </h>
       </div>
     </div>
         </div>
+        <Parent/>
       </div>
     );
   }
