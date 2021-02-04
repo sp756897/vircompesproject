@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Parent from "./Land";
 
 export default class Landing extends Component {
   render() {
@@ -67,7 +66,6 @@ export default class Landing extends Component {
       </div>
     </div>
         </div>
-        <Parent/>
       </div>
     );
   }
